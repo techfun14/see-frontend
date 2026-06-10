@@ -1,0 +1,123 @@
+/* ─────────────────────────────────────────────
+   GLOBAL CSS
+   All CSS custom properties (theme variables),
+   resets, keyframes, and utility classes
+   live here. Every component imports its own
+   .css file on top of this foundation.
+───────────────────────────────────────────── */
+
+/* ── CSS CUSTOM PROPERTIES (THEME) ─────────── */
+:root {
+  --navy:         #0A2E5C;
+  --navy-dark:    #071E3D;
+  --blue:         #1565C0;
+  --blue-mid:     #1976D2;
+  --orange:       #F57C00;
+  --orange-light: #FF9800;
+  --bg-alt:       #F4F7FB;
+  --text-dark:    #0A1929;
+  --text-body:    #3D4F6B;
+  --text-muted:   #7A8FA6;
+  --white:        #ffffff;
+  --border:       rgba(10, 46, 92, 0.1);
+  --shadow-card:  0 20px 50px rgba(10, 46, 92, 0.1);
+  --shadow-sm:    0 12px 30px rgba(10, 46, 92, 0.09);
+}
+
+/* ── RESET ──────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--white);
+  color: var(--text-body);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Sora', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ── KEYFRAME ANIMATIONS ────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.55; transform: scale(0.8); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+/* ── SCROLL REVEAL UTILITY ──────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── STAGGER CHILDREN on reveal ─────────────── */
+.reveal .stagger-child {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+/* Catch-all: every revealed child becomes visible — works for ANY number of
+   children (previously only :nth-child(1..8) were covered, so a 9th+ card such
+   as the 9th–11th product stayed invisible and left an empty gap). */
+.reveal.visible .stagger-child { opacity: 1; transform: translateY(0); }
+
+/* Staggered timing for the first several; any extras follow at a fixed delay. */
+.reveal.visible .stagger-child:nth-child(1) { transition-delay: 0.05s; }
+.reveal.visible .stagger-child:nth-child(2) { transition-delay: 0.12s; }
+.reveal.visible .stagger-child:nth-child(3) { transition-delay: 0.19s; }
+.reveal.visible .stagger-child:nth-child(4) { transition-delay: 0.26s; }
+.reveal.visible .stagger-child:nth-child(5) { transition-delay: 0.33s; }
+.reveal.visible .stagger-child:nth-child(6) { transition-delay: 0.40s; }
+.reveal.visible .stagger-child:nth-child(7) { transition-delay: 0.47s; }
+.reveal.visible .stagger-child:nth-child(8) { transition-delay: 0.54s; }
+.reveal.visible .stagger-child:nth-child(n+9) { transition-delay: 0.6s; }
+
+/* ── BRAND COLORS (new) ──────────────────────── */
+/* Purple and gold accent variables for the new brand */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}

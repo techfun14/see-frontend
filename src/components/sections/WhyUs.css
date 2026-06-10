@@ -1,0 +1,157 @@
+/* ── WHY CHOOSE US SECTION ───────────────────── */
+.whyus {
+  background: var(--navy);
+  padding: 88px 5%;
+  position: relative;
+  overflow: hidden;
+}
+
+.whyus__bg-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.8) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+}
+
+/* ── GRID ── */
+.whyus__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* ── LEFT SIDE ── */
+.whyus__title {
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.whyus__sub {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.75;
+  margin-bottom: 36px;
+  max-width: 420px;
+}
+
+.whyus__features {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.whyus__feat {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 14px;
+  padding: 18px 20px;
+  transition: background 0.2s ease;
+}
+
+.whyus__feat:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.whyus__feat-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(245, 124, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--orange);
+}
+
+.whyus__feat-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 4px;
+}
+
+.whyus__feat-desc {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.6;
+}
+
+/* ── RIGHT SIDE — STATS ── */
+.whyus__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.whyus__stat {
+  border-radius: 18px;
+  padding: 28px 20px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background 0.2s ease;
+}
+
+.whyus__stat:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.whyus__stat--accent {
+  background: rgba(245, 124, 0, 0.15);
+  border-color: rgba(245, 124, 0, 0.3);
+}
+
+.whyus__stat-number {
+  font-family: 'Sora', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: white;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.whyus__stat-suffix {
+  color: var(--orange);
+}
+
+.whyus__stat-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .whyus { padding: 60px 5%; }
+  .whyus__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .whyus { padding: 48px 5%; }
+  .whyus__stats {
+    grid-template-columns: 1fr 1fr;
+  }
+  .whyus__stat { padding: 20px 14px; }
+  .whyus__stat-number { font-size: 32px; }
+  .whyus__sub { font-size: 14px; }
+}

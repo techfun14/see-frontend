@@ -1,0 +1,29 @@
+/* ── WHATSAPP FLOATING BUTTON ────────────────── */
+.wa-btn {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  z-index: 99;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+  transition: transform 0.2s ease;
+}
+
+.wa-btn:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 600px) {
+  .wa-btn {
+    width: 46px;
+    height: 46px;
+    bottom: 18px;
+    left: 18px;
+  }
+}

@@ -1,0 +1,475 @@
+/* ── ADMIN LAYOUT ────────────────────────────── */
+.admin-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: 100vh;
+  background: var(--bg-alt);
+}
+
+/* ── SIDEBAR ── */
+.admin-sidebar {
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.admin-sidebar__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 22px 20px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  text-decoration: none;
+}
+
+.admin-sidebar__brand-icon {
+  width: 38px; height: 38px; border-radius: 9px;
+  background: white;
+  display: flex; align-items: center; justify-content: center;
+  padding: 3px; flex-shrink: 0;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.18);
+}
+
+.admin-sidebar__brand-name { font-family: 'Sora', sans-serif; font-size: 14px; font-weight: 700; color: white; }
+.admin-sidebar__brand-role { font-size: 10px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing:.06em; }
+
+.admin-sidebar__nav { flex: 1; padding: 16px 10px; }
+
+.admin-sidebar__section-label {
+  font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3); padding: 8px 10px 6px; margin-top: 8px;
+}
+
+.admin-sidebar__link {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px; border-radius: 9px; margin-bottom: 2px;
+  font-size: 13.5px; font-weight: 500; color: rgba(255,255,255,0.65);
+  text-decoration: none; transition: background .2s, color .2s;
+}
+
+.admin-sidebar__link:hover { background: rgba(255,255,255,0.07); color: white; }
+.admin-sidebar__link.active { background: rgba(255,255,255,0.12); color: white; }
+
+.admin-sidebar__link-icon { width: 18px; height: 18px; flex-shrink: 0; opacity: .8; }
+.admin-sidebar__link.active .admin-sidebar__link-icon { opacity: 1; }
+
+.admin-sidebar__badge {
+  margin-left: auto; font-size: 10px; font-weight: 700;
+  background: var(--orange); color: white;
+  padding: 2px 7px; border-radius: 10px;
+}
+
+.admin-sidebar__footer {
+  padding: 16px 20px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+
+.admin-sidebar__user {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 12px;
+}
+
+.admin-sidebar__avatar {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--orange));
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Sora', sans-serif; font-size: 12px; font-weight: 700; color: white;
+  flex-shrink: 0;
+}
+
+.admin-sidebar__user-name { font-size: 13px; font-weight: 600; color: white; }
+.admin-sidebar__user-role { font-size: 11px; color: rgba(255,255,255,0.4); }
+
+.admin-sidebar__logout {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 10px; border-radius: 8px; width: 100%;
+  font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500;
+  color: rgba(255,255,255,0.5); background: none; border: none; cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.admin-sidebar__logout:hover { background: rgba(255,255,255,0.07); color: white; }
+
+/* ── MAIN AREA ── */
+.admin-main { overflow-y: auto; }
+
+/* ── MOBILE HEADER (hidden on desktop) ── */
+.admin-mobile-header {
+  display: none;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px;
+  height: 56px;
+  background: var(--navy);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.admin-mobile-header__menu-btn {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.admin-mobile-header__menu-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.admin-mobile-header__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.admin-mobile-header__brand-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: white;
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── MOBILE OVERLAY ── */
+.admin-mobile-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  backdrop-filter: blur(2px);
+}
+
+.admin-topbar {
+  background: white; border-bottom: 1px solid var(--border);
+  padding: 0 28px; height: 60px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 20;
+}
+
+.admin-topbar__title { font-family: 'Sora', sans-serif; font-size: 16px; font-weight: 600; color: var(--navy); }
+.admin-topbar__actions { display: flex; gap: 10px; align-items: center; }
+
+.admin-topbar__btn {
+  font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500;
+  padding: 8px 16px; border-radius: 8px; cursor: pointer;
+  border: 1.5px solid var(--border); background: white; color: var(--text-body);
+  transition: all .2s;
+}
+.admin-topbar__btn:hover { border-color: var(--blue); color: var(--blue); }
+.admin-topbar__btn--primary { background: var(--navy); color: white; border-color: var(--navy); }
+.admin-topbar__btn--primary:hover { background: var(--blue); border-color: var(--blue); color: white; }
+
+.admin-content { padding: 28px; }
+
+/* ── STAT CARDS ── */
+.admin-stats { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-bottom: 28px; }
+
+.admin-stat-card {
+  background: white; border-radius: var(--border-radius-lg);
+  border: 1px solid var(--border); padding: 20px 22px;
+}
+.admin-stat-card__label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing:.06em; color: var(--text-muted); margin-bottom: 8px; }
+.admin-stat-card__value { font-family: 'Sora', sans-serif; font-size: 28px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+.admin-stat-card__sub { font-size: 12px; color: var(--text-muted); }
+.admin-stat-card__dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 5px; }
+.admin-stat-card__dot--green { background: #4CAF50; }
+.admin-stat-card__dot--orange { background: var(--orange); }
+.admin-stat-card__dot--blue { background: var(--blue); }
+
+/* ── DATA TABLE ── */
+.admin-table-wrap { background: white; border-radius: var(--border-radius-lg); border: 1px solid var(--border); overflow: hidden; }
+.admin-table-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid var(--border); }
+.admin-table-title { font-family: 'Sora', sans-serif; font-size: 15px; font-weight: 600; color: var(--navy); }
+
+.admin-table { width: 100%; border-collapse: collapse; }
+.admin-table th { padding: 10px 16px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing:.06em; color: var(--text-muted); background: var(--bg-alt); text-align: left; border-bottom: 1px solid var(--border); white-space: nowrap; }
+.admin-table td { padding: 13px 16px; font-size: 13px; color: var(--text-body); border-bottom: 1px solid var(--border); vertical-align: middle; }
+.admin-table tr:last-child td { border-bottom: none; }
+.admin-table tr:hover td { background: var(--bg-alt); }
+
+/* Status badges */
+.status-badge { font-size: 10px; font-weight: 600; padding: 3px 9px; border-radius: 20px; text-transform: uppercase; letter-spacing:.04em; white-space: nowrap; }
+.status-badge--new       { background: #E6F1FB; color: #185FA5; }
+.status-badge--scheduled { background: #FAEEDA; color: #854F0B; }
+.status-badge--ongoing   { background: #EAF3DE; color: #3B6D11; }
+.status-badge--done      { background: #E1F5EE; color: #0F6E56; }
+.status-badge--cancelled { background: #FCEBEB; color: #A32D2D; }
+.status-badge--delayed   { background: #EEEDFE; color: #3C3489; }
+.status-badge--available   { background: #EAF3DE; color: #3B6D11; }
+.status-badge--unavailable { background: #FCEBEB; color: #A32D2D; }
+
+/* Action buttons in table */
+.tbl-btn { font-size: 11px; font-weight: 600; padding: 5px 11px; border-radius: 6px; border: 1px solid var(--border); background: white; cursor: pointer; transition: all .15s; color: var(--text-body); }
+.tbl-btn:hover { border-color: var(--blue); color: var(--blue); }
+.tbl-btn--danger:hover { border-color: #C62828; color: #C62828; }
+
+/* ── RESPONSIVE ── */
+/* Mobile header - only visible on mobile */
+.admin-mobile-header {
+  display: none;
+  background: white;
+  border-bottom: 1px solid var(--border);
+  padding: 12px 16px;
+  align-items: center;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.admin-mobile-header__menu-btn {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.admin-mobile-header__menu-btn:hover {
+  background: var(--bg-alt);
+}
+
+.admin-mobile-header__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.admin-mobile-header__brand-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: white;
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Mobile overlay */
+.admin-mobile-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+}
+
+/* Close button in sidebar - only visible on mobile */
+.admin-sidebar__close-btn-wrap {
+  display: none;
+  padding: 16px 20px 8px;
+  justify-content: flex-end;
+}
+
+.admin-sidebar__close-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.admin-sidebar__close-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+@media (max-width: 900px) {
+  /* Show mobile header */
+  .admin-mobile-header {
+    display: flex;
+  }
+
+  /* Update layout for mobile — switch OFF grid. As a 2-row grid with
+     min-height:100vh, the first row stretched to fill the viewport and
+     pushed the content down with a huge empty gap. Block flow stacks
+     the mobile header + main cleanly (sidebar is fixed/off-canvas). */
+  .admin-layout {
+    display: block;
+    padding-top: 0;
+  }
+  /* main must NOT be its own scroll container on mobile, otherwise the
+     sticky topbar clamps 56px INSIDE it and leaves a gap under the header */
+  .admin-main { overflow: visible; }
+  /* keep the page title sticking just under the 56px mobile header */
+  .admin-topbar { top: 56px; }
+
+  /* Sidebar becomes a slide-out menu */
+  .admin-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 280px;
+    z-index: 999;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .admin-sidebar--open {
+    transform: translateX(0);
+  }
+
+  /* Show overlay when menu is open */
+  .admin-sidebar--open ~ .admin-mobile-overlay,
+  .admin-mobile-overlay {
+    display: block;
+  }
+
+  /* Show close button on mobile */
+  .admin-sidebar__close-btn-wrap {
+    display: flex;
+  }
+
+  /* Adjust main content */
+  .admin-main {
+    width: 100%;
+  }
+
+  /* Make content padding smaller on mobile */
+  .admin-content {
+    padding: 16px;
+  }
+
+  /* Stat cards: 2-up grid on mobile (nicer than a single tall column) */
+  .admin-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .admin-stat-card { padding: 16px 16px; }
+  .admin-stat-card__value { font-size: 24px; }
+  .admin-stat-card__label { font-size: 11px; }
+
+  /* Make tables scrollable on mobile */
+  .admin-table-wrap {
+    overflow-x: auto;
+  }
+
+  .admin-table {
+    min-width: 800px;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Even more compact on very small screens */
+  .admin-content {
+    padding: 12px;
+  }
+}
+
+/* ── MOBILE: turn data tables into stacked cards (≤760px) ── */
+/* Comes after the 900px rules so it wins for small screens.   */
+@media (max-width: 760px) {
+  /* Topbar wraps instead of crowding */
+  .admin-topbar {
+    flex-wrap: wrap;
+    height: auto;
+    min-height: 56px;
+    padding: 10px 16px;
+    gap: 8px 10px;
+  }
+  .admin-topbar__title { font-size: 15px; }
+  .admin-topbar__actions { flex-wrap: wrap; gap: 8px; }
+  .admin-topbar__btn { padding: 7px 12px; font-size: 12px; }
+
+  /* Wrapper becomes invisible — each row floats as its own card */
+  .admin-table-wrap {
+    border: none;
+    background: transparent;
+    border-radius: 0;
+    overflow: visible;
+  }
+  .admin-table-header {
+    border-bottom: none;
+    padding: 4px 2px 12px;
+  }
+
+  .admin-table { min-width: 0; width: 100%; display: block; }
+  .admin-table thead { display: none; }
+  .admin-table tbody { display: block; }
+
+  .admin-table tr {
+    display: block;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 12px;
+    padding: 4px 2px;
+    box-shadow: 0 1px 5px rgba(10, 46, 92, 0.05);
+  }
+  .admin-table tr:hover td { background: transparent; }
+
+  /* Each cell = a labelled row inside the card: LABEL on top, value below.
+     This stacks cleanly even for multi-line cells (name+hospital, city+state). */
+  .admin-table td {
+    display: block;
+    text-align: left;
+    padding: 7px 16px;
+    border: none;
+    font-size: 13.5px;
+    max-width: none !important;
+  }
+  .admin-table tr td:first-child { padding-top: 12px; }
+  .admin-table tr td:last-child  { padding-bottom: 12px; }
+
+  .admin-table td::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 2px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  /* cells flagged data-label="" (expanded detail rows, action buttons,
+     empty-state rows) have no label */
+  .admin-table td[data-label=""]::before { content: none; }
+  .admin-table td[data-label=""] > div { justify-content: flex-start !important; }
+  /* action buttons get a little breathing room above */
+  .admin-table td[data-label=""] { padding-top: 10px; }
+}

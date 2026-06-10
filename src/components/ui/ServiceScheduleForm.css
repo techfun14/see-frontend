@@ -1,0 +1,189 @@
+/* ── SERVICE SCHEDULE FORM ───────────────────── */
+.ssf {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.ssf__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.ssf__field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.ssf__label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.ssf__input,
+.ssf__textarea {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  padding: 11px 13px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.07);
+  color: white;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.ssf__input::placeholder,
+.ssf__textarea::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.ssf__input:focus,
+.ssf__textarea:focus {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.11);
+}
+
+/* ── SELECT — use appearance:none + custom styled wrapper ── */
+.ssf__select-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.ssf__select-wrap::after {
+  content: '';
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid rgba(255,255,255,0.5);
+  pointer-events: none;
+}
+
+.ssf__select {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  padding: 11px 36px 11px 13px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  /* Solid dark bg — not semi-transparent. Fixes white dropdown on Windows/Android */
+  background: #0D2B50;
+  color: white;
+  outline: none;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.ssf__select:focus {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* option groups and options — solid dark background */
+.ssf__select option,
+.ssf__select optgroup {
+  background-color: #0A2540;
+  color: white;
+}
+
+.ssf__textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.ssf__prefilled {
+  background: rgba(255, 255, 255, 0.04) !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  cursor: not-allowed;
+  font-size: 12px;
+}
+
+.ssf__error {
+  font-size: 11px;
+  color: #FFCDD2;
+  margin-top: 1px;
+}
+
+.ssf__server-error {
+  font-size: 12px;
+  color: #FFCDD2;
+  text-align: center;
+  padding: 8px;
+  background: rgba(255, 0, 0, 0.1);
+  border-radius: 6px;
+}
+
+.ssf__submit {
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  background: white;
+  border: none;
+  padding: 13px;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 2px;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.ssf__submit:hover:not(:disabled) {
+  background: #f0f4f8;
+  transform: translateY(-1px);
+}
+
+.ssf__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ── SUCCESS STATE ── */
+.ssf__success {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.ssf__success-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px;
+  color: white;
+}
+
+.ssf__success-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.ssf__success-sub {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 480px) {
+  .ssf__row { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,313 @@
+/* ── NAVBAR ──────────────────────────────────── */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  height: 74px;
+  background: rgba(10, 46, 92, 0.97);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  transition: height 0.3s ease, background 0.3s ease;
+}
+
+.navbar.scrolled {
+  height: 64px;
+  background: rgba(7, 30, 61, 0.98);
+}
+
+/* ── LOGO ── */
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.navbar__logo:hover .navbar__logo-icon svg {
+  animation: logoSpin 1.5s ease-in-out;
+}
+
+@keyframes logoSpin {
+  0%   { transform: scale(1) rotate(0deg); }
+  30%  { transform: scale(1.08) rotate(-5deg); }
+  60%  { transform: scale(1.05) rotate(3deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.navbar__logo-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: white;
+  border-radius: 50%;
+  padding: 3px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12);
+}
+
+.navbar__logo-text {
+  font-family: 'Sora', sans-serif;
+}
+
+.navbar__logo-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  line-height: 1.2;
+}
+
+.navbar__logo-gold {
+  color: #D4A437;
+}
+
+.navbar__logo-sub {
+  font-size: 11px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── DESKTOP NAV ── */
+.navbar__links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  align-items: center;
+}
+
+.navbar__link {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: color 0.2s ease;
+}
+
+.navbar__link:hover {
+  color: white;
+}
+
+.navbar__link--active {
+  color: white !important;
+  position: relative;
+}
+
+.navbar__link--active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--orange);
+  border-radius: 2px;
+}
+
+.navbar__cta {
+  background: var(--orange);
+  color: white;
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 9px;
+  transition: background 0.2s ease, transform 0.15s ease;
+  display: inline-block;
+}
+
+.navbar__cta:hover {
+  background: var(--orange-light);
+  transform: translateY(-1px);
+}
+
+/* ── HAMBURGER (mobile) ── */
+.navbar__hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  padding: 4px;
+}
+
+/* ── MOBILE DROPDOWN ── */
+.navbar__mobile-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(7, 30, 61, 0.99);
+  padding: 16px 5% 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.navbar__mobile-link {
+  display: block;
+  padding: 13px 0;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: color 0.2s;
+}
+
+.navbar__mobile-link:hover {
+  color: white;
+}
+
+.navbar__mobile-cta {
+  display: inline-block;
+  margin-top: 18px;
+  background: var(--orange);
+  color: white;
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 26px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.navbar__mobile-cta:hover {
+  background: var(--orange-light);
+}
+
+/* ── SIGN IN LINK ── */
+.navbar__signin-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  padding: 7px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.navbar__signin-link:hover {
+  color: white;
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* ── DASHBOARD BUTTON (logged in) ── */
+.navbar__dashboard-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 7px 16px 7px 8px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.navbar__dashboard-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.navbar__user-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Sora', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .navbar__links      { display: none; }
+  .navbar__hamburger  { display: block; }
+
+  .navbar { height: 62px; padding: 0 4%; }
+  .navbar.scrolled { height: 56px; }
+
+  .navbar__logo { gap: 8px; }
+
+  .navbar__logo-icon {
+    width: 40px;
+    height: 40px;
+    padding: 2px;
+  }
+
+  .navbar__logo-name { font-size: 16px; }
+  .navbar__logo-sub  { font-size: 9px; letter-spacing: 0.04em; }
+}
+
+@media (max-width: 400px) {
+  .navbar__logo-sub { display: none; }
+}
+
+/* ── ADMIN PANEL BUTTON (shown when admin is logged in) ── */
+.navbar__admin-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--orange);
+  background: rgba(245,124,0,0.12);
+  border: 1px solid rgba(245,124,0,0.3);
+  padding: 7px 14px;
+  border-radius: 8px;
+  transition: background 0.2s, border-color 0.2s;
+}
+.navbar__admin-btn:hover {
+  background: rgba(245,124,0,0.2);
+  border-color: rgba(245,124,0,0.5);
+}
+
+/* ── ADMIN LOGIN LOCK ICON (subtle, always present, no label) ── */
+.navbar__admin-login {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  color: rgba(255,255,255,0.2);
+  transition: color 0.2s;
+}
+.navbar__admin-login:hover {
+  color: rgba(255,255,255,0.5);
+}
+
+/* ── SIGN OUT BUTTON (desktop, shown when admin is logged in) ── */
+.navbar__signout-btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 7px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.navbar__signout-btn:hover {
+  color: white;
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.06);
+}

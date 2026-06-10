@@ -1,0 +1,578 @@
+/* ══════════════════════════════════════════════════════
+   HERO — Split layout
+   LEFT: dark navy gradient + all text + CTAs
+   RIGHT: product photo displayed naturally (portrait or landscape)
+
+   This approach works for ALL photo orientations because
+   the photo sits in its own panel rather than filling the
+   entire background — no cropping, no distortion.
+══════════════════════════════════════════════════════ */
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 580px;
+  height: calc(100vh - 0px);
+  max-height: 780px;
+  overflow: hidden;
+  background: #04172B;
+}
+
+/* ══ ENTRANCE ANIMATIONS ════════════════════════ */
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes heroFadeRight {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes heroScaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes heroPulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212,164,55,0.4); }
+  50%      { box-shadow: 0 0 20px 4px rgba(212,164,55,0.15); }
+}
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.hero__slide.active .hero__badge {
+  animation: heroFadeUp 0.6s ease-out both;
+}
+.hero__slide.active .hero__heading {
+  animation: heroFadeRight 0.7s ease-out 0.15s both;
+}
+.hero__slide.active .hero__sub {
+  animation: heroFadeUp 0.7s ease-out 0.3s both;
+}
+.hero__slide.active .hero__btns {
+  animation: heroFadeUp 0.6s ease-out 0.45s both;
+}
+.hero__slide.active .hero__stats {
+  animation: heroFadeUp 0.6s ease-out 0.6s both;
+}
+.hero__slide.active .hero__photo {
+  animation: heroScaleIn 0.9s ease-out 0.2s both;
+}
+
+/* Scan line removed — was distracting over product photos */
+
+/* Shimmer on primary button */
+.hero__btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+.hero__btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.15) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ── SLIDES ── */
+.hero__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+  pointer-events: none;
+  display: flex;
+}
+.hero__slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ══ LEFT PANEL — text content ══════════════════════ */
+.hero__left {
+  flex: 0 0 52%;
+  background: linear-gradient(135deg, #04172B 0%, #0A2E5C 100%);
+  display: flex;
+  align-items: center;
+  padding: 80px 5% 60px 6%;
+  position: relative;
+  z-index: 2;
+}
+
+/* Subtle grid pattern on left */
+.hero__left::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image:
+    linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px);
+  background-size: 44px 44px;
+  pointer-events: none;
+}
+
+/* Diagonal connector: left panel bleeds slightly into right */
+.hero__left::after {
+  content: '';
+  position: absolute;
+  right: -40px;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  background: linear-gradient(135deg, #04172B 0%, #0A2E5C 100%);
+  clip-path: polygon(0 0, 50% 0, 100% 100%, 0 100%);
+  z-index: 3;
+}
+
+.hero__text { position: relative; z-index: 4; max-width: 520px; }
+
+/* ══ RIGHT PANEL — photo ════════════════════════════ */
+.hero__right {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: #071E3D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 40px 28px 60px;
+}
+
+/* Background blur copy of photo — fills right panel */
+.hero__photo-blur {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(24px) brightness(0.35) saturate(0.6);
+  transform: scale(1.1);
+}
+
+/* The actual photo — displayed fully, no cropping */
+.hero__photo {
+  position: relative;
+  z-index: 2;
+  max-width: 100%;
+  max-height: calc(100% - 40px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08);
+  display: block;
+}
+
+/* When no photo — show placeholder */
+.hero__photo-placeholder {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hero__photo-placeholder-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Sora', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.2);
+}
+
+.hero__photo-placeholder-text {
+  font-size: 12px;
+  color: rgba(255,255,255,0.2);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ══ BADGE ══════════════════════════════════════════ */
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(212,164,55,0.15);
+  border: 1px solid rgba(212,164,55,0.3);
+  border-radius: 20px;
+  padding: 5px 14px;
+  margin-bottom: 22px;
+}
+
+.hero__badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--orange);
+  animation: heropulse 2s ease-in-out infinite;
+}
+
+@keyframes heroplus { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.8)} }
+@keyframes heroplus { from{} to{} }
+
+@keyframes heropdot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.45; transform: scale(0.75); }
+}
+
+/* rename to avoid conflicts */
+.hero__badge-dot { animation: heropdot 2s ease-in-out infinite; }
+
+.hero__badge-text {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+/* ══ HEADING ════════════════════════════════════════ */
+.hero__heading {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(26px, 3.5vw, 50px);
+  font-weight: 700;
+  color: white;
+  line-height: 1.14;
+  margin-bottom: 18px;
+  letter-spacing: -0.02em;
+}
+
+.hero__accent { color: #D4A437; }
+
+/* ══ SUB TEXT ═══════════════════════════════════════ */
+.hero__sub {
+  font-size: clamp(13px, 1.2vw, 16px);
+  color: rgba(255,255,255,0.65);
+  line-height: 1.72;
+  margin-bottom: 32px;
+  max-width: 430px;
+}
+
+/* ══ BUTTONS ════════════════════════════════════════ */
+.hero__btns {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.hero__btn-primary {
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  background: var(--orange);
+  padding: 13px 26px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+.hero__btn-primary:hover {
+  background: #F57C00;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(245,124,0,0.38);
+}
+
+.hero__btn-outline {
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  background: rgba(255,255,255,0.08);
+  padding: 13px 26px;
+  border-radius: 10px;
+  border: 1.5px solid rgba(255,255,255,0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+.hero__btn-outline:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.55);
+}
+
+/* ══ STATS ══════════════════════════════════════════ */
+.hero__stats {
+  display: flex;
+  gap: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  flex-wrap: wrap;
+}
+
+.hero__stat-number {
+  font-family: 'Sora', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: white;
+  line-height: 1;
+}
+
+.hero__stat-suffix { color: #D4A437; }
+
+.hero__stat-label {
+  font-size: 10px;
+  color: rgba(255,255,255,0.4);
+  margin-top: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ══ THUMBNAIL STRIP — bottom right of photo panel ═══ */
+.hero__strip {
+  position: absolute;
+  bottom: 18px;
+  right: 16px;
+  display: flex;
+  gap: 6px;
+  z-index: 10;
+  align-items: center;
+}
+
+.hero__strip-thumb {
+  width: 56px;
+  height: 40px;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.2s, transform 0.2s;
+  background: rgba(255,255,255,0.08);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__strip-thumb.active {
+  border-color: white;
+  transform: scale(1.1);
+}
+
+.hero__strip-thumb:hover:not(.active) {
+  border-color: rgba(255,255,255,0.45);
+}
+
+.hero__strip-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__strip-label {
+  font-size: 9px;
+  color: rgba(255,255,255,0.35);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.hero__strip-arrow {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.08);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+.hero__strip-arrow:hover { background: rgba(255,255,255,0.2); }
+
+/* ══ DOTS (bottom left panel) ═══════════════════════ */
+.hero__dots {
+  position: absolute;
+  bottom: 22px;
+  left: 6%;
+  display: flex;
+  gap: 7px;
+  z-index: 10;
+}
+
+.hero__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s, width 0.3s;
+}
+
+.hero__dot.active {
+  background: var(--orange);
+  width: 22px;
+  border-radius: 4px;
+}
+
+/* ══ ARROWS ═════════════════════════════════════════ */
+.hero__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.2);
+  background: rgba(4,23,43,0.6);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.hero__arrow:hover { background: rgba(4,23,43,0.9); }
+.hero__arrow--prev { left: 12px; }
+.hero__arrow--next { right: 12px; }
+
+/* ══ PROGRESS BAR ════════════════════════════════ */
+.hero__progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: var(--orange);
+  z-index: 10;
+  transition: width 0.1s linear;
+}
+
+/* ══ RESPONSIVE ═════════════════════════════════════ */
+/* ══ RESPONSIVE ═════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .hero {
+    height: 92svh;
+    min-height: 520px;
+    max-height: 750px;
+    flex-direction: column;
+  }
+
+  .hero__slide {
+    position: absolute;
+    inset: 0;
+    flex-direction: column;
+    opacity: 0;
+    display: flex;
+    transition: opacity 0.9s ease;
+    pointer-events: none;
+  }
+  .hero__slide.active { opacity: 1; pointer-events: auto; }
+
+  /* Photo = full bleed background */
+  .hero__right {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    padding: 0;
+    height: 100%;
+    align-items: stretch;
+    justify-content: stretch;
+  }
+
+  .hero__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    border-radius: 0;
+    box-shadow: none;
+    max-height: none;
+    max-width: none;
+  }
+
+  .hero__photo-blur {
+    position: absolute;
+    inset: 0;
+    filter: blur(0px) brightness(0.35);
+    transform: none;
+  }
+
+  /* Stronger gradient overlay — ensures readable text */
+  .hero__right::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,
+      rgba(4,23,43,0.97) 0%,
+      rgba(4,23,43,0.88) 30%,
+      rgba(4,23,43,0.55) 55%,
+      rgba(4,23,43,0.25) 75%,
+      rgba(4,23,43,0.10) 100%
+    );
+    z-index: 1;
+  }
+
+  /* Text panel — positioned at bottom */
+  .hero__left {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    background: none;
+    padding: 0 6% 52px;
+    order: 2;
+    align-items: flex-end;
+  }
+  .hero__left::before, .hero__left::after { display: none; }
+
+  .hero__text { max-width: 100%; }
+
+  .hero__badge { margin-bottom: 14px; }
+  .hero__badge-text { font-size: 10px; }
+
+  .hero__heading { margin-bottom: 12px; }
+  .hero__sub  { max-width: 100%; font-size: 13px; line-height: 1.6; margin-bottom: 18px; }
+
+  .hero__stats { gap: 16px; padding-top: 18px; }
+  .hero__stat-number { font-size: 22px; }
+  .hero__stat-label  { font-size: 9px; }
+
+  .hero__strip { display: none; }
+  .hero__arrow { display: none; }
+  .hero__dots  { bottom: 14px; left: 50%; transform: translateX(-50%); }
+
+  .hero__photo-placeholder { min-height: 100%; background: #04172B; }
+}
+
+@media (max-width: 600px) {
+  .hero { min-height: 480px; max-height: 680px; }
+  .hero__heading { font-size: clamp(22px, 6.5vw, 32px); line-height: 1.2; }
+  .hero__btns { gap: 8px; }
+  .hero__btn-primary, .hero__btn-outline { padding: 11px 18px; font-size: 13px; }
+  .hero__left { padding: 0 5% 44px; }
+  .hero__sub { font-size: 12.5px; margin-bottom: 16px; }
+  .hero__stats { gap: 14px; }
+}

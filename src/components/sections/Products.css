@@ -1,0 +1,233 @@
+/* ── PRODUCTS SECTION ────────────────────────── */
+.products {
+  padding: 88px 5%;
+  background: var(--white);
+}
+
+/* ── HEADER ── */
+.products__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 44px;
+  gap: 20px;
+}
+
+.products__title {
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+}
+
+.products__view-all {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--blue);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: gap 0.2s;
+}
+
+.products__view-all:hover {
+  gap: 10px;
+}
+
+/* ── GRID ── */
+.products__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+/* ── PRODUCT CARD ── */
+.product-card {
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  background: white;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 44px rgba(10, 46, 92, 0.12);
+}
+
+.product-card:hover .product-card__img {
+  transform: scale(1.05);
+  transition: transform 0.4s ease;
+}
+
+.product-card__image {
+  overflow: hidden;
+}
+
+/* Image area */
+.product-card__image {
+  width: 100%;
+  height: 175px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid #EEF2F8;
+}
+
+.product-card__label-placeholder {
+  font-family: 'Sora', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--blue);
+  opacity: 0.2;
+}
+
+.product-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Badge */
+.product-card__badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.badge--green {
+  background: #E8F5E9;
+  color: #2E7D32;
+}
+
+.badge--orange {
+  background: #FFF3E0;
+  color: #E65100;
+}
+
+/* Body */
+.product-card__body {
+  padding: 20px;
+}
+
+.product-card__category {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.product-card__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+
+.product-card__desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.product-card__enquire {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--blue);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: gap 0.2s, color 0.2s;
+}
+
+.product-card__enquire:hover {
+  gap: 10px;
+}
+
+/* ── CTA BANNER (full-width, below the grid) ── */
+.products__cta-banner {
+  margin-top: 28px;
+  background: linear-gradient(135deg, #0A2E5C, #1A4B8C, #4A2073);
+  border-radius: 18px;
+  padding: 28px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.products__cta-banner-heading {
+  font-family: 'Sora', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: white;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.products__cta-banner-sub {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 14px;
+  line-height: 1.55;
+  max-width: 540px;
+}
+
+.products__cta-banner-btn {
+  background: var(--orange);
+  color: white;
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 13px 26px;
+  border-radius: 10px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.products__cta-banner-btn:hover {
+  background: var(--orange-light);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .products__cta-banner { padding: 22px 20px; gap: 16px; }
+  .products__cta-banner-heading { font-size: 19px; }
+  .products__cta-banner-btn { width: 100%; text-align: center; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .products { padding: 60px 5%; }
+}
+
+@media (max-width: 600px) {
+  .products { padding: 48px 5%; }
+  .products__header { flex-direction: column; align-items: flex-start; margin-bottom: 28px; }
+  .products__grid { gap: 16px; }
+  .product-card__body { padding: 16px; }
+}
+
+/* ── COMING SOON BADGE ── */
+.badge--coming {
+  background: #E3E8EF;
+  color: #4A5568;
+}

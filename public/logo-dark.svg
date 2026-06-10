@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 100" fill="none">
+  <defs>
+    <linearGradient id="goldFillD" x1="70" y1="2" x2="20" y2="82" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#E0B840"/>
+      <stop offset="45%" stop-color="#D4A437"/>
+      <stop offset="100%" stop-color="#B8851F"/>
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(5, 2)">
+    <!-- Gold crescent — bold C-shape -->
+    <path d="M 23 12 A 35 35 0 1 1 23 64 A 28 28 0 1 0 23 12 Z" fill="url(#goldFillD)"/>
+    <!-- Ring -->
+    <circle cx="43" cy="38" r="23" stroke="white" stroke-width="5" fill="none"/>
+    <!-- Viewfinder notch -->
+    <rect x="40" y="17" width="6" height="4" rx="1.5" fill="white"/>
+    <!-- Bar 1 — gold -->
+    <line x1="14" y1="48" x2="72" y2="48" stroke="url(#goldFillD)" stroke-width="3" stroke-linecap="round"/>
+    <!-- Bar 2 — white -->
+    <line x1="21" y1="54" x2="65" y2="54" stroke="white" stroke-width="2" stroke-linecap="round"/>
+    <!-- Bar 3 — semi-circular base -->
+    <path d="M 27 55 Q 43 72 59 55 Z" fill="white"/>
+  </g>
+
+  <text x="108" y="56" font-family="'Sora', 'Segoe UI', sans-serif" font-size="48" font-weight="800" letter-spacing="2" fill="white">SEE</text>
+  <text x="250" y="56" font-family="'Sora', 'Segoe UI', sans-serif" font-size="48" font-weight="800" letter-spacing="2" fill="#C8922E">IMAGING</text>
+</svg>

@@ -1,0 +1,93 @@
+/* ══ HERO ANIMATED BACKGROUND ═══════════════════ */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-bg__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Ghost Logo (large, subtle, behind content) ── */
+.hero-bg__ghost-logo {
+  position: absolute;
+  right: -8%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 550px;
+  height: 510px;
+  opacity: 0.5;
+}
+
+.hero-bg__ghost-logo svg {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-bg__ghost-arc {
+  animation: ghostArcPulse 6s ease-in-out infinite;
+}
+
+.hero-bg__ghost-ring {
+  animation: ghostRingPulse 5s ease-in-out 1s infinite;
+}
+
+.hero-bg__ghost-sweep {
+  animation: ghostSweep 4s linear infinite;
+  transform-origin: 130px 110px;
+}
+
+@keyframes ghostArcPulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.4; }
+}
+
+@keyframes ghostRingPulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.5; }
+}
+
+@keyframes ghostSweep {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Gold Glow Orb ── */
+.hero-bg__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+}
+
+.hero-bg__orb--gold {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(212,164,55,0.07) 0%, transparent 70%);
+  bottom: 10%;
+  right: 15%;
+  animation: orbFloat 10s ease-in-out infinite;
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0); }
+  25%      { transform: translate(15px, -20px); }
+  50%      { transform: translate(-10px, 15px); }
+  75%      { transform: translate(20px, 10px); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .hero-bg__ghost-logo {
+    width: 300px;
+    height: 278px;
+    right: -15%;
+    opacity: 0.25;
+  }
+  .hero-bg__orb--gold { width: 180px; height: 180px; }
+}
