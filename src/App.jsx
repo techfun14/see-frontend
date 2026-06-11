@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/react'
 
 // Layout
 import Navbar            from './components/layout/Navbar'
@@ -79,6 +80,7 @@ function PublicShell() {
 export default function App() {
   return (
     <BrowserRouter>
+      <Analytics />
       <Routes>
 
         {/* Admin login — no navbar/footer */}
