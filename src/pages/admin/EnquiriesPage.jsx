@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from '../../context/AuthContext'
+import { API_BASE } from '../../constants/api'
 
 export default function EnquiriesPage() {
   const { authHeader } = useAuth()
@@ -13,7 +14,7 @@ export default function EnquiriesPage() {
     async function load() {
       setLoading(true)
       try {
-        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/enquiry`, {
+        const res = await fetch(`${API_BASE}/enquiry`, {
           headers: { ...authHeader(), 'Content-Type': 'application/json' }
         })
         if (!res.ok) throw new Error(`HTTP ${res.status}`)
@@ -31,7 +32,7 @@ export default function EnquiriesPage() {
   async function updateStatus(id, status) {
     try {
       const res = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/enquiry/${id}/status?status=${status}`,
+        `${API_BASE}/enquiry/${id}/status?status=${status}`,
         { method: 'PATCH', headers: authHeader() }
       )
       if (!res.ok) throw new Error('Update failed')

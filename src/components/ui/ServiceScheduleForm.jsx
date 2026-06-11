@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { ALL_MACHINES, ALL_MACHINE_GROUPS, INDIAN_STATES } from '../../constants/formOptions'
+import { API_BASE } from '../../constants/api'
 import './ServiceScheduleForm.css'
 
 const INITIAL = { name:'', phone:'', email:'', hospital:'', city:'', state:'', machine:'', urgency:'', problem:'' }
@@ -34,7 +35,7 @@ export default function ServiceScheduleForm({ serviceTitle, urgencyOptions }) {
     if (Object.keys(errs).length) { setErrors(errs); return }
     setServerErr(''); setSubmitting(true)
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/service-requests`, {
+      const res = await fetch(`${API_BASE}/service-requests`, {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
         body:    JSON.stringify({ ...form, serviceType: serviceTitle }),

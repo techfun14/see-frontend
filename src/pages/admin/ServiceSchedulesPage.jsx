@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from '../../context/AuthContext'
+import { API_BASE } from '../../constants/api'
 
 const STATUSES = ['NEW','SCHEDULED','ONGOING','DONE','DELAYED','CANCELLED']
 const TECHNICIANS = ['Ramesh Gupta', 'Suresh Verma', 'Pradeep Sharma', 'Amit Tiwari']
@@ -93,7 +94,7 @@ export default function ServiceSchedulesPage() {
     async function load() {
       setLoading(true)
       try {
-        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/service-requests`, {
+        const res = await fetch(`${API_BASE}/service-requests`, {
           headers: { ...authHeader(), 'Content-Type': 'application/json' }
         })
         if (!res.ok) throw new Error(`HTTP ${res.status}`)
@@ -110,7 +111,7 @@ export default function ServiceSchedulesPage() {
 
   async function handleSave(updated) {
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/service-requests/${updated.id}`, {
+      const res = await fetch(`${API_BASE}/service-requests/${updated.id}`, {
         method:  'PUT',
         headers: { ...authHeader(), 'Content-Type': 'application/json' },
         body:    JSON.stringify(updated),
@@ -127,7 +128,7 @@ export default function ServiceSchedulesPage() {
   async function handleDelete(id) {
     if (!window.confirm('Permanently delete this service request? This cannot be undone.')) return
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/service-requests/${id}`, {
+      const res = await fetch(`${API_BASE}/service-requests/${id}`, {
         method:  'DELETE',
         headers: authHeader(),
       })
@@ -142,7 +143,7 @@ export default function ServiceSchedulesPage() {
     if (!window.confirm('Mark this service request as CANCELLED?')) return
     try {
       const item = schedules.find(s => s.id === id)
-      const res  = await fetch(`${import.meta.env.VITE_API_URL}/api/service-requests/${id}`, {
+      const res  = await fetch(`${API_BASE}/service-requests/${id}`, {
         method:  'PUT',
         headers: { ...authHeader(), 'Content-Type': 'application/json' },
         body:    JSON.stringify({ ...item, status: 'CANCELLED' }),

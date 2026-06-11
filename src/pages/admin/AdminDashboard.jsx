@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
+import { API_BASE } from '../../constants/api'
 
 export default function AdminDashboard() {
   const { user, authHeader } = useAuth()
@@ -14,8 +15,8 @@ export default function AdminDashboard() {
       setLoading(true)
       try {
         const [svcRes, enqRes] = await Promise.all([
-          fetch(`${import.meta.env.VITE_API_URL}/api/service-requests`, { headers: authHeader() }),
-          fetch(`${import.meta.env.VITE_API_URL}/api/enquiry`,          { headers: authHeader() }),
+          fetch(`${API_BASE}/service-requests`, { headers: authHeader() }),
+          fetch(`${API_BASE}/enquiry`,          { headers: authHeader() }),
         ])
 
         const svcData = svcRes.ok ? await svcRes.json() : []

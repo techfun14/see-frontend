@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { PRODUCT_ENQUIRY_OPTIONS, INDIAN_STATES } from '../../constants/formOptions'
+import { API_BASE } from '../../constants/api'
 import './EnquiryForm.css'
 
 const INITIAL = { name:'', phone:'', email:'', city:'', hospital:'', product:'', message:'' }
@@ -36,7 +37,7 @@ export default function EnquiryForm() {
     if (Object.keys(e2).length) { setErrors(e2); return }
     setSubmitting(true); setServerError('')
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/enquiry`, {
+      const res = await fetch(`${API_BASE}/enquiry`, {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
         body:    JSON.stringify(form),

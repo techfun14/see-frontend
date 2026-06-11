@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from '../../context/AuthContext'
+import { API_BASE } from '../../constants/api'
 
 export default function AdminProductsPage() {
   const { authHeader } = useAuth()
@@ -14,7 +15,7 @@ export default function AdminProductsPage() {
       setLoading(true)
       try {
         const res = await fetch(
-  `${import.meta.env.VITE_API_URL}/api/products`,
+  `${API_BASE}/products`,
   {
     headers: authHeader()
   }
@@ -35,7 +36,7 @@ export default function AdminProductsPage() {
     const newAvailable = !current
     try {
       const res = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/products/${id}/availability?available=${newAvailable}`,
+        `${API_BASE}/products/${id}/availability?available=${newAvailable}`,
         { method: 'PATCH', headers: authHeader() }
       )
       if (!res.ok) throw new Error('Toggle failed')
@@ -49,7 +50,7 @@ export default function AdminProductsPage() {
   async function saveEdit(id) {
     try {
       const product = products.find(p => p.id === id)
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/products/${id}`, {
+      const res = await fetch(`${API_BASE}/products/${id}`, {
         method:  'PUT',
         headers: { ...authHeader(), 'Content-Type': 'application/json' },
         body:    JSON.stringify({ ...product, ...editForm }),

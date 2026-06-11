@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom'
 import { PRODUCTS_CATALOG } from '../constants/products'
 import { COMPANY } from '../constants/data'
 import SEO from '../components/seo/SEO'
+import { API_BASE } from '../constants/api'
 import { buildProductSchema, buildBreadcrumbSchema } from '../components/seo/structuredData'
 import './ProductDetailPage.css'
 
@@ -22,7 +23,7 @@ function EnquiryPanel({ productTitle, variantName }) {
     setError('')
     setSubmitting(true)
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/enquiry`, {
+      const res = await fetch(`${API_BASE}/enquiry`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...form, product: `${productTitle} — ${variantName}` }),

@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react'
+import { API_BASE } from '../constants/api'
 
 // ─────────────────────────────────────────────────────────
 //  AUTH CONTEXT — Admin only
@@ -37,7 +38,7 @@ export function AuthProvider({ children }) {
 
   // ── Login ──────────────────────────────────────────────
   async function login(email, password) {
-    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/login`, {
+    const res = await fetch(`${API_BASE}/auth/login`, {
       method:  'POST',
       headers: { 'Content-Type': 'application/json' },
       body:    JSON.stringify({ email, password }),
