@@ -33,6 +33,7 @@ export const HERO_STATS = [
 // ── HERO EQUIPMENT LIST ──────────────────────
 export const HERO_EQUIPMENT = [
   { name: 'GE CT Scan — Single to 128 Slice', badge: 'Available' },
+  { name: 'GE PET-CT — Discovery 600 & 610',  badge: 'Available' },
   { name: 'GE MRI Systems',                   badge: 'Available' },
   { name: 'CT Spare Parts — All Models',       badge: 'In Stock'  },
   { name: 'AMC / CMC Service Contracts',       badge: 'Pan India' },
@@ -224,6 +225,8 @@ export const FOOTER_PRODUCTS = [
   'GE CT Scanner — 64 & 128 Slice',
   'GE Brivo CT 325 & 385',
   'GE Revolution CT Series',
+  'GE Discovery 600 — PET-CT',       
+  'GE Discovery 610 — PET-CT',       
   'GE MRI Systems (Coming Soon)',
   'GE CT Scan Spare Parts',
 ]

@@ -55,9 +55,9 @@ export default function ProductsPage() {
     <div className="products-page">
       <SEO
         title="Refurbished GE CT Scanners & MRI Systems"
-        description="Browse refurbished GE CT Scanners from Single Slice to 128 Slice, MRI systems, and genuine spare parts. Tested, certified, and delivered across India by SEE Imaging, Bhopal."
+        description="Browse refurbished GE CT Scanners from Single Slice to 128 Slice, PET-CT systems (Discovery 600 & 610), MRI systems, and genuine spare parts. Tested, certified, and delivered across India by SEE Imaging, Bhopal."
         path="/products"
-        keywords="refurbished GE CT scanner, buy CT scan machine India, GE MRI system, CT scanner price India, refurbished medical imaging, SEE Imaging products"
+        keywords="refurbished GE CT scanner, buy CT scan machine India, GE MRI system, CT scanner price India, refurbished medical imaging, SEE Imaging products, PET-CT scanner India, GE Discovery 600, GE Discovery 610, refurbished PET CT"
         jsonLd={productListSchema}
       />
 
@@ -69,8 +69,8 @@ export default function ProductsPage() {
           Refurbished Radiology<br />Equipment
         </h1>
         <p className="products-page__hero-sub">
-          GE CT Scanners from Single Slice to 128 Slice, MRI Systems, and Spare Parts.
-          All units are tested, certified, and ready for installation across India.
+          GE CT Scanners from Single Slice to 128 Slice, PET-CT Systems (Discovery 600 & 610),
+          MRI Systems, and Spare Parts. All units are tested, certified, and ready for installation across India.
         </p>
       </div>
 

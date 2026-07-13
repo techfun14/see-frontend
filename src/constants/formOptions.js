@@ -26,11 +26,15 @@ export const ALL_MACHINES = [
   { value: 'GE Revolution Expert (64 Slice)',        label: 'GE Revolution Expert — 64 Slice',        group: 'GE Revolution' },
   { value: 'GE Discovery CT750 HD (128 Slice)',      label: 'GE Discovery CT750 HD — 128 Slice',      group: 'GE CT Scanner' },
   { value: 'GE Revolution EVO (128 Slice)',          label: 'GE Revolution EVO — 128 Slice',          group: 'GE Revolution' },
+  // ── GE PET-CT ──
+  { value: 'GE Discovery 600 (PET-CT)',               label: 'GE Discovery 600 — PET-CT',             group: 'GE PET-CT'     },
+  { value: 'GE Discovery 610 (PET-CT)',               label: 'GE Discovery 610 — PET-CT',             group: 'GE PET-CT'     },
   // ── GE MRI ──
   { value: 'GE Signa HDe (1.5T MRI)',               label: 'GE Signa HDe — 1.5T MRI',               group: 'GE MRI System' },
   { value: 'GE Optima MR450w (1.5T MRI)',           label: 'GE Optima MR450w — 1.5T MRI',           group: 'GE MRI System' },
   { value: 'GE Signa HDxt (3.0T MRI)',              label: 'GE Signa HDxt — 3.0T MRI',              group: 'GE MRI System' },
   { value: 'GE Discovery MR750 (3.0T MRI)',         label: 'GE Discovery MR750 — 3.0T MRI',         group: 'GE MRI System' },
+  
   // ── Other ──
   { value: 'Other / Not listed',                    label: 'Other / Not listed',                    group: 'Other'         },
 ]
@@ -39,6 +43,7 @@ export const ALL_MACHINE_GROUPS = [
   'GE CT Scanner',
   'GE Brivo CT',
   'GE Revolution',
+  'GE PET-CT',
   'GE MRI System',
   'Other',
 ]
@@ -54,6 +59,8 @@ export const PRODUCT_ENQUIRY_OPTIONS = [
   { value: 'GE Revolution CT — 4 Slice',            label: 'GE Revolution CT — 4 Slice'            },
   { value: 'GE Revolution CT — 16 Slice',           label: 'GE Revolution CT — 16 Slice'           },
   { value: 'GE Revolution EXcel / Expert — 64 Slice', label: 'GE Revolution EXcel / Expert — 64 Slice' },
+  { value: 'GE Discovery 600 — PET-CT',             label: 'GE Discovery 600 — PET-CT'             },  // ADD
+  { value: 'GE Discovery 610 — PET-CT',             label: 'GE Discovery 610 — PET-CT'             },
   { value: 'GE MRI System (1.5T / 3.0T)',           label: 'GE MRI System (1.5T / 3.0T)'           },
   { value: 'GE CT Scan Spare Parts',                label: 'GE CT Scan Spare Parts'                },
   { value: 'AMC Contract',                          label: 'AMC — Annual Maintenance Contract'      },

@@ -22,6 +22,8 @@ import revolution16slicepart2 from '../assets/images/revolution16slice2.png'
 import revolutionexpert64slice from '../assets/images/Revolution Expert 64 slice.png'
 import revolutionaexpert64slice2 from '../assets/images/GeRevolution Expert 64 slice.png'
 import GeMRI from '../assets/images/geMri.png'
+import discovery600 from '../assets/images/discovery600.png'
+import discovery610 from '../assets/images/discovery610.png'
 export const PRODUCTS_CATALOG = [
 
   // ─────────────────────────────────────────
@@ -654,11 +656,134 @@ components as a cost-effective alternative to full replacement, with technical s
       },
     ],
   },
+  // ─────────────────────────────────────────
+  //  PET-CT SCAN — DISCOVERY 600
+  // ─────────────────────────────────────────
+  {
+    id: 12,
+    slug: 'ge-discovery-pet-ct-600',
+    category: 'PET-CT',
+    categoryLabel: 'PET-CT Scanner',
+    title: 'GE Discovery 600 — PET-CT',
+    tagline: 'High-performance 16-slice PET-CT for oncology, neurology, and cardiology',
+    badge: 'Available',
+    badgeClass: 'badge--green',
+    label: 'PET',
+    mainImage: discovery600,   // replace with null if no image yet
+    gallery: [discovery600],
+    description: `The GE Discovery 600 is a proven, high-performance PET-CT system combining a
+16-slice CT scanner with a time-of-flight capable PET detector. It delivers excellent image
+quality for oncology staging, restaging, and treatment response assessment, as well as
+neurological and cardiac applications. Our refurbished Discovery 600 units are fully tested,
+calibrated, and commissioned before delivery. Complete site planning, installation, and
+AMC support is available across India.`,
+    highlights: [
+      'Combined PET and 16-slice CT in one system',
+      'Time-of-flight (TOF) PET capability',
+      'Excellent sensitivity for oncology imaging',
+      'Full site planning and shielding support',
+      'Cyclotron connectivity and FDG workflow ready',
+      'AMC / CMC contracts available',
+      'Pan India delivery and installation',
+    ],
+    applications: [
+      'Oncology staging and restaging',
+      'Treatment response assessment',
+      'Neurological PET imaging',
+      'Cardiac viability studies',
+      'Infection and inflammation localisation',
+      'PET/CT guided radiotherapy planning',
+    ],
+    variants: [
+      {
+        name: 'Discovery 600',
+        model: 'GE Discovery 600 PET-CT',
+        image: null,
+        specs: {
+          'System type': 'PET-CT (combined)',
+          'CT slices': '16 slice',
+          'PET detector': 'BGO / LYSO scintillator',
+          'TOF capability': 'Yes (time-of-flight)',
+          'Axial FOV (PET)': '15.7 cm',
+          'Transaxial FOV (PET)': '70 cm',
+          'CT gantry aperture': '70 cm',
+          'CT scan time': '0.5 seconds per rotation',
+          'CT kVp range': '80, 100, 120, 140 kVp',
+          'CT mA range': '10–440 mA',
+          'Workflow': 'Integrated PET/CT acquisition',
+          'Status': 'Enquire for availability and pricing',
+        },
+      },
+    ],
+  },
+
+  // ─────────────────────────────────────────
+  //  PET-CT SCAN — DISCOVERY 610
+  // ─────────────────────────────────────────
+  {
+    id: 13,
+    slug: 'ge-discovery-pet-ct-610',
+    category: 'PET-CT',
+    categoryLabel: 'PET-CT Scanner',
+    title: 'GE Discovery 610 — PET-CT',
+    tagline: 'Advanced 16-slice PET-CT with enhanced sensitivity and faster whole-body scans',
+    badge: 'Available',
+    badgeClass: 'badge--green',
+    label: 'PET',
+    mainImage: discovery610,   // replace with null if no image yet
+    gallery: [discovery610],
+    description: `The GE Discovery 610 is an advanced PET-CT system offering improved PET sensitivity
+and faster whole-body acquisition times compared to the Discovery 600. It combines a 16-slice CT
+with GE's enhanced PET detector technology for superior lesion detectability and reduced scan times.
+The Discovery 610 is particularly well suited to high-volume oncology centres. All refurbished units
+are fully calibrated, QA tested, and commissioned with complete site support from SEE Imaging.`,
+    highlights: [
+      'Enhanced PET sensitivity over Discovery 600',
+      'Faster whole-body acquisition',
+      'Superior lesion detectability',
+      'Ideal for high-volume oncology centres',
+      'Full DICOM, PACS, and RIS integration',
+      'Site planning, shielding, and radiation safety support',
+      'AMC / CMC contracts available',
+    ],
+    applications: [
+      'High-volume oncology imaging',
+      'Whole-body FDG PET-CT',
+      'Neurology and dementia workup',
+      'Cardiac PET viability',
+      'Lymphoma and solid tumour staging',
+      'RT planning with PET/CT fusion',
+    ],
+    variants: [
+      {
+        name: 'Discovery 610',
+        model: 'GE Discovery 610 PET-CT',
+        image: null,
+        specs: {
+          'System type': 'PET-CT (combined)',
+          'CT slices': '16 slice',
+          'PET detector': 'LYSO scintillator (enhanced)',
+          'TOF capability': 'Yes (time-of-flight)',
+          'Axial FOV (PET)': '15.7 cm',
+          'Transaxial FOV (PET)': '70 cm',
+          'CT gantry aperture': '70 cm',
+          'CT scan time': '0.5 seconds per rotation',
+          'CT kVp range': '80, 100, 120, 140 kVp',
+          'CT mA range': '10–440 mA',
+          'Workflow': 'Integrated PET/CT acquisition',
+          'Sensitivity improvement': 'Higher vs Discovery 600',
+          'Status': 'Enquire for availability and pricing',
+        },
+      },
+    ],
+  },
 ]
 
 export const PRODUCT_CATEGORIES = [
   { value: 'all',         label: 'All Products'  },
   { value: 'CT Scanner',  label: 'CT Scanners'   },
+  { value:'PET-CT',       label:'PET-CT Scanners'},
   { value: 'MRI',         label: 'MRI Systems'   },
   { value: 'Spare Parts', label: 'Spare Parts'   },
+  
 ]
