@@ -16,6 +16,8 @@ import ServicesPage      from './pages/ServicesPage'
 import ServiceDetailPage from './pages/ServiceDetailPage'
 import AboutPage         from './pages/AboutPage'
 import ContactPage       from './pages/ContactPage'
+import BlogPage          from './pages/BlogPage'
+import BlogDetailPage    from './pages/BlogDetailPage'
 import NotFoundPage      from './pages/NotFoundPage'
 
 // Admin login — only login page, no public signup
@@ -67,6 +69,8 @@ function PublicShell() {
           <Route path="/services/:slug" element={<ServiceDetailPage />} />
           <Route path="/about"         element={<AboutPage />}           />
           <Route path="/contact"        element={<ContactPage />}       />
+          <Route path="/blog"          element={<BlogPage />}          />
+          <Route path="/blog/:slug"    element={<BlogDetailPage />}    />
           <Route path="*"              element={<NotFoundPage />}      />
         </Routes>
       </main>

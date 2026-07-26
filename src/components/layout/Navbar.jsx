@@ -8,7 +8,8 @@ import './Navbar.css'
 const NAV_ITEMS = [
   { label: 'Products', to: '/products' },
   { label: 'Services', to: '/services' },
-  { label: 'About',    to: '/about'   },
+  { label: 'Blog',     to: '/blog'     },
+  { label: 'About',    to: '/about'    },
   { label: 'Contact',  to: '/contact'  },
 ]
 
@@ -35,7 +36,8 @@ export default function Navbar() {
   function isActive(to) {
     if (to === '/products') return location.pathname.startsWith('/products')
     if (to === '/services') return location.pathname.startsWith('/services')
-    if (to === '/about')   return location.pathname.startsWith('/about') 
+    if (to === '/blog')     return location.pathname.startsWith('/blog')
+    if (to === '/about')    return location.pathname.startsWith('/about')
     if (to === '/contact')  return location.pathname === '/contact'
     return false
   }

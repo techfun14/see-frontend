@@ -26,7 +26,7 @@ export default function Footer() {
           <div className="footer__brand-name">SEE <span className="footer__brand-gold">Imaging</span></div>
           <div className="footer__brand-tag">Advanced Diagnostic Solutions</div>
           <p className="footer__brand-desc">
-            Specialists in refurbished GE CT Scan and MRI systems.
+            Specialists in refurbished GE CT Scan, MRI, and PET-CT systems.
             Quality-tested radiology equipment with pan India service support.
           </p>
         </div>
@@ -38,6 +38,19 @@ export default function Footer() {
             {PRODUCTS_CATALOG.map(p => (
               <Link key={p.id} to={`/products/${p.slug}`} className="footer__link">{p.title}</Link>
             ))}
+          </div>
+        </nav>
+
+        {/* Blog */}
+        <nav aria-label="Blog">
+          <div className="footer__col-title">Blog</div>
+          <div className="footer__links">
+            <Link to="/blog" className="footer__link">All Articles</Link>
+            <Link to="/blog/what-is-a-ct-scanner" className="footer__link">What Is a CT Scanner?</Link>
+            <Link to="/blog/what-is-pet-ct-scan" className="footer__link">What Is a PET-CT Scan?</Link>
+            <Link to="/blog/what-is-an-mri-scanner" className="footer__link">What Is an MRI Scanner?</Link>
+            <Link to="/blog/refurbished-vs-new-ct-scanner" className="footer__link">Refurbished vs New CT</Link>
+            <Link to="/blog/amc-vs-cmc-which-service-contract" className="footer__link">AMC vs CMC Guide</Link>
           </div>
         </nav>
 
