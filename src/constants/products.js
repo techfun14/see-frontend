@@ -21,9 +21,14 @@ import revolution16slice from '../assets/images/Revolution16SLice.png'
 import revolution16slicepart2 from '../assets/images/revolution16slice2.png'
 import revolutionexpert64slice from '../assets/images/Revolution Expert 64 slice.png'
 import revolutionaexpert64slice2 from '../assets/images/GeRevolution Expert 64 slice.png'
+import philipsMx16Slice from '../assets/images/Philips MX 16 Slice CT.png'
+import philipsBrilliance16SLice from '../assets/images/Philips Brilliance 16 Slice CT.png'
+import philipsBrilliance64Slice from '../assets/images/Philips Brilliance 64 Slice CT.png'
+import philipsAccess16Slice from '../assets/images/Philips Access 16 Slice CT.png'
 import GeMRI from '../assets/images/geMri.png'
 import discovery600 from '../assets/images/discovery600.png'
 import discovery610 from '../assets/images/discovery610.png'
+import geCtScannerSpareParts from'../assets/images/GE CT Scan Spare Parts.png'
 export const PRODUCTS_CATALOG = [
 
   // ─────────────────────────────────────────
@@ -614,8 +619,8 @@ field strength, and pricing.`,
     badge: 'In Stock',
     badgeClass: 'badge--orange',
     label: '⚙',
-    mainImage: null,
-    gallery: [null, null],
+    mainImage: geCtScannerSpareParts,
+    gallery: [geCtScannerSpareParts],
     description: `SEE Imaging maintains one of the largest inventories of GE CT Scan
 spare parts in central India. We supply genuine and compatible components for all major GE CT models
 from the legacy HiSpeed to the Revolution series. Our in-house repair facility also refurbishes faulty
@@ -777,6 +782,196 @@ are fully calibrated, QA tested, and commissioned with complete site support fro
       },
     ],
   },
+  {
+    id: 14,
+    slug: 'philips-mx-16-slice',
+    category: 'CT Scanner',
+    categoryLabel: 'Philips CT Scanner',
+    title: 'Philips MX 16 Slice CT Scanner',
+    tagline: '16-slice CT imaging for routine diagnostic workflows',
+    badge: 'Available',
+    badgeClass: 'badge--green',
+    label: 'CT',
+    mainImage: philipsMx16Slice,
+    gallery: [philipsMx16Slice],
+    description: `The Philips MX 16 is a 16-slice CT scanner for diagnostic centres and hospitals seeking
+routine CT imaging capability. The exact system configuration, software, and included accessories can
+vary between refurbished units. Contact SEE Imaging to confirm the available unit's details, pricing,
+installation requirements, and service support.`,
+    highlights: [
+      '16-slice CT configuration',
+      'For routine diagnostic imaging',
+      'Suitable for head, chest, abdomen, and musculoskeletal studies',
+      'Refurbished unit details confirmed before purchase',
+      'Installation and service support available through SEE Imaging',
+      'Ask about the exact software and accessories included',
+    ],
+    applications: [
+      'Head and brain imaging',
+      'Chest and pulmonary imaging',
+      'Abdominal and pelvic CT',
+      'Musculoskeletal imaging',
+      'Routine emergency and trauma imaging',
+    ],
+    variants: [
+      {
+        name: 'MX 16',
+        model: 'Philips MX 16',
+        image: null,
+        specs: {
+          'System type': 'CT scanner',
+          'Slice configuration': '16 slice',
+          'Clinical use': 'Routine diagnostic CT',
+          'System configuration': 'Confirm unit-specific details with SEE Imaging',
+          'Software and accessories': 'Confirm with SEE Imaging',
+          'Availability': 'Enquire for current unit and pricing',
+        },
+      },
+    ],
+  },
+  {
+    id: 15,
+    slug: 'philips-brilliance-16-slice',
+    category: 'CT Scanner',
+    categoryLabel: 'Philips CT Scanner',
+    title: 'Philips Brilliance 16 Slice CT Scanner',
+    tagline: '16-slice Brilliance CT system for a broad range of routine examinations',
+    badge: 'Available',
+    badgeClass: 'badge--green',
+    label: 'CT',
+    mainImage: philipsBrilliance16SLice,
+    gallery: [philipsBrilliance16SLice],
+    description: `The Philips Brilliance 16 is a 16-slice CT system suited to routine diagnostic imaging.
+The installed software, options, and condition depend on the individual refurbished unit. SEE Imaging can
+confirm the available system configuration and discuss delivery, installation, and ongoing service
+support before you make a purchase.`,
+    highlights: [
+      '16-slice CT configuration',
+      'Designed for a broad range of routine CT examinations',
+      'Useful for general head and body imaging workflows',
+      'Unit-specific condition and configuration confirmed before purchase',
+      'Installation and service support available through SEE Imaging',
+      'Ask about included software, workstation, and accessories',
+    ],
+    applications: [
+      'Head and brain imaging',
+      'Chest and pulmonary imaging',
+      'Abdominal and pelvic CT',
+      'Vascular and musculoskeletal examinations, subject to system configuration',
+      'Routine emergency imaging',
+    ],
+    variants: [
+      {
+        name: 'Brilliance 16',
+        model: 'Philips Brilliance 16',
+        image: philipsBrilliance16SLice,
+        specs: {
+          'System type': 'CT scanner',
+          'Slice configuration': '16 slice',
+          'Clinical use': 'Routine diagnostic CT',
+          'System configuration': 'Confirm unit-specific details with SEE Imaging',
+          'Software and accessories': 'Confirm with SEE Imaging',
+          'Availability': 'Enquire for current unit and pricing',
+        },
+      },
+    ],
+  },
+  {
+    id: 16,
+    slug: 'philips-brilliance-64-slice',
+    category: 'CT Scanner',
+    categoryLabel: 'Philips CT Scanner',
+    title: 'Philips Brilliance 64 Slice CT Scanner',
+    tagline: '64-slice Brilliance CT system for advanced diagnostic imaging workflows',
+    badge: 'Available',
+    badgeClass: 'badge--green',
+    label: 'CT',
+    mainImage: philipsBrilliance64Slice,
+    gallery: [philipsBrilliance64Slice],
+    description: `The Philips Brilliance 64 is a 64-slice CT system for facilities requiring advanced
+cross-sectional imaging. Potential clinical applications and available features depend on the specific
+unit and its installed options. Contact SEE Imaging to verify the refurbished system's configuration,
+condition, and included software before purchase.`,
+    highlights: [
+      '64-slice CT configuration',
+      'For advanced diagnostic imaging workflows',
+      'Cardiac and vascular applications depend on the unit configuration',
+      'Installed options and system condition confirmed before purchase',
+      'Installation and service support available through SEE Imaging',
+      'Ask about the exact software, workstation, and accessories included',
+    ],
+    applications: [
+      'Head and brain imaging',
+      'Chest and abdominal CT',
+      'Vascular imaging, subject to system configuration',
+      'Cardiac CT, subject to installed options and clinical requirements',
+      'Oncology and emergency imaging',
+    ],
+    variants: [
+      {
+        name: 'Brilliance 64',
+        model: 'Philips Brilliance 64',
+        image: null,
+        specs: {
+          'System type': 'CT scanner',
+          'Slice configuration': '64 slice',
+          'Clinical use': 'Advanced diagnostic CT',
+          'System configuration': 'Confirm unit-specific details with SEE Imaging',
+          'Clinical options': 'Confirm installed options with SEE Imaging',
+          'Software and accessories': 'Confirm with SEE Imaging',
+          'Availability': 'Enquire for current unit and pricing',
+        },
+      },
+    ],
+  },
+  {
+    id: 17,
+    slug: 'philips-access-16-slice',
+    category: 'CT Scanner',
+    categoryLabel: 'Philips CT Scanner',
+    title: 'Philips Access 16 Slice CT Scanner',
+    tagline: '16-slice CT imaging for everyday hospital and diagnostic centre needs',
+    badge: 'Available',
+    badgeClass: 'badge--green',
+    label: 'CT',
+    mainImage: philipsAccess16Slice,
+    gallery: [philipsAccess16Slice],
+    description: `The Philips Access 16 is a 16-slice CT scanner for facilities looking for an everyday
+diagnostic imaging system. Refurbished unit condition, installed software, and included accessories
+vary. SEE Imaging can provide the available unit's configuration and discuss installation and service
+support with your team.`,
+    highlights: [
+      '16-slice CT configuration',
+      'For everyday diagnostic imaging',
+      'Suitable for general head and body CT workflows',
+      'Refurbished unit condition and configuration confirmed before purchase',
+      'Installation and service support available through SEE Imaging',
+      'Ask about included software and accessories',
+    ],
+    applications: [
+      'Head and brain imaging',
+      'Chest and pulmonary imaging',
+      'Abdominal and pelvic CT',
+      'Musculoskeletal imaging',
+      'Routine emergency imaging',
+    ],
+    variants: [
+      {
+        name: 'Access 16',
+        model: 'Philips Access 16',
+        image: null,
+        specs: {
+          'System type': 'CT scanner',
+          'Slice configuration': '16 slice',
+          'Clinical use': 'Routine diagnostic CT',
+          'System configuration': 'Confirm unit-specific details with SEE Imaging',
+          'Software and accessories': 'Confirm with SEE Imaging',
+          'Availability': 'Enquire for current unit and pricing',
+        },
+      },
+    ],
+  },
+
 ]
 
 export const PRODUCT_CATEGORIES = [

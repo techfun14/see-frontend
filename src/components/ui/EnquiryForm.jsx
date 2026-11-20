@@ -99,10 +99,10 @@ export default function EnquiryForm() {
           <select className="enquiry-form__select" name="product" value={form.product} onChange={handleChange}>
             <option value="">— Select product or service —</option>
             <optgroup label="CT Scanners">
-              {PRODUCT_ENQUIRY_OPTIONS.slice(0,9).map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
+              {PRODUCT_ENQUIRY_OPTIONS.slice(0,13).map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
             </optgroup>
-            <optgroup label="MRI & Other">
-              {PRODUCT_ENQUIRY_OPTIONS.slice(9).map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
+            <optgroup label="PET-CT, MRI & Other">
+              {PRODUCT_ENQUIRY_OPTIONS.slice(13).map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
             </optgroup>
           </select>
           {errors.product && <span className="enquiry-form__error">{errors.product}</span>}

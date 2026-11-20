@@ -68,7 +68,10 @@ export function buildProductSchema(product, variant) {
     '@type': 'Product',
     name: `${product.title}${variant ? ` — ${variant.name}` : ''}`,
     description: product.tagline || product.description,
-    brand: { '@type': 'Brand', name: 'GE Healthcare' },
+    brand: {
+      '@type': 'Brand',
+      name: product.categoryLabel?.startsWith('Philips') ? 'Philips' : 'GE Healthcare',
+    },
     category: product.category,
     url: `${SITE_URL}/products/${product.slug}`,
     image: product.mainImage ? `${SITE_URL}${product.mainImage}` : `${SITE_URL}/og-image.jpg`,

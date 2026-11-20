@@ -47,17 +47,17 @@ export default function ProductsPage() {
     : PRODUCTS_CATALOG.filter(p => p.category === activeCategory)
 
   const productListSchema = useMemo(
-    () => buildItemListSchema(PRODUCTS_CATALOG, 'Refurbished GE CT Scanners & MRI Systems'),
+    () => buildItemListSchema(PRODUCTS_CATALOG, 'Refurbished GE and Philips CT Scanners & MRI Systems'),
     []
   )
 
   return (
     <div className="products-page">
       <SEO
-        title="Refurbished GE CT Scanners & MRI Systems"
-        description="Browse refurbished GE CT Scanners from Single Slice to 128 Slice, PET-CT systems (Discovery 600 & 610), MRI systems, and genuine spare parts. Tested, certified, and delivered across India by SEE Imaging, Bhopal."
+        title="Refurbished GE & Philips CT Scanners and MRI Systems"
+        description="Browse refurbished GE and Philips CT scanners, PET-CT systems, MRI systems, and genuine spare parts. Ask SEE Imaging, Bhopal, about available units, configurations, and delivery across India."
         path="/products"
-        keywords="refurbished GE CT scanner, buy CT scan machine India, GE MRI system, CT scanner price India, refurbished medical imaging, SEE Imaging products, PET-CT scanner India, GE Discovery 600, GE Discovery 610, refurbished PET CT"
+        keywords="refurbished GE CT scanner, Philips CT scanner, Philips MX 16, Philips Brilliance 16, Philips Brilliance 64, Philips Access 16, buy CT scan machine India, GE MRI system, refurbished medical imaging, SEE Imaging products, PET-CT scanner India, GE Discovery 600, GE Discovery 610"
         jsonLd={productListSchema}
       />
 
@@ -69,8 +69,8 @@ export default function ProductsPage() {
           Refurbished Radiology<br />Equipment
         </h1>
         <p className="products-page__hero-sub">
-          GE CT Scanners from Single Slice to 128 Slice, PET-CT Systems (Discovery 600 & 610),
-          MRI Systems, and Spare Parts. All units are tested, certified, and ready for installation across India.
+          GE and Philips CT Scanners, PET-CT Systems (Discovery 600 & 610), MRI Systems, and Spare Parts.
+          Ask us about available units and installation across India.
         </p>
       </div>
 
